@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/artistSongs.css" />
+    <title>artists Songs</title>
+  </head>
+  <body>
+    <a href="{{ url_for('index') }}">
+      <button><i class="fa-solid fa-arrow-left"></i>Back</button>
+    </a>
+    <h1>Songs By Artists</h1>
+    <div class="container">
+      <div class="row">
+        {% for i in ar %}
+        <div class="card">
+          <a
+            href="{{url_for('viewsongs',song_id = i[0],lcount=lcount)}}"
+            class="card-link"
+          >
+            <div class="card-content">
+              <h3 class="card-title">{{ i[1] }}</h3>
+              <!-- <p class="card-description">{{ i[2] }}</p> -->
+              <img src="{{url_for('static',filename=i[4]+'.jpg')}}" /></div
+          ></a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/8e56515553.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

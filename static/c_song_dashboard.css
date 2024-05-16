@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+body {
+  font-family: outfit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(
+    179.4deg,
+    rgb(12, 20, 69) -16.9%,
+    rgb(71, 30, 84) 119.9%
+  );
+  height: 100vh;
+}
+center {
+  padding: 30px 0;
+  display: inline-block;
+  color: aliceblue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.back {
+  border: none;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 20px;
+  background-color: #31304d;
+  color: #f0ece5;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+.back i {
+  padding: 0 5px;
+}
+button:hover {
+  background-color: rgb(79, 78, 78);
+}
+.container {
+  display: block;
+  /* margin: 10px auto; */
+}
+.container h1 {
+  text-align: center;
+  text-decoration: none;
+  animation: side 1.4s ease;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+.banner{
+
+}
+.card_container .card{
+  border-radius: 20px;
+  line-height: 1;
+  /* background-color: rgba(0,0,0,0.2); */
+}
+.container h1 {
+  font-size: 43px;
+  text-align: center;
+  background: #7cb9e8;
+  font-weight: 600;
+  padding-bottom: 5px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btns{
+    display: flex;
+}
+.card-body a{
+    background-color: #31304d;
+    color: #f0ece5;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    width: 80px;
+    border: 1px solid white;
+    margin: 5px auto;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 10px;
+    transition: all 0.3s ease
+} 
+.card-body a:hover{
+  background-color: black;
+  transform: scale(1.1);
+}
+.banner img{
+  height: fit-content;
+  animation: drop 1.3s ease forwards ;
+}
+.card{
+  display: flex;
+  gap: 20px;
+  width: fit-content;
+  color: #f0ece5;
+  animation: fade 1.5s ease forwards;
+}
+.card-body h5{
+  font-size: 25px;
+  padding-top: 20px ;
+  margin: 0;
+  letter-spacing: 2px;
+}
+audio {
+  width: 240px;
+  margin: 20px 0;
+}
+audio::-webkit-media-controls-panel {
+  background: linear-gradient(
+    109.6deg,
+    rgb(245, 239, 249) 30.1%,
+    rgb(207, 211, 236) 100.2%
+  );
+}
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-current-time,
+audio::-webkit-media-controls-time-remaining,
+audio::-webkit-media-controls-panel {
+  font-size: 12px; /* Example font size */
+}
+.banner img{
+  height: 400px;
+  border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+  .banner img{
+    height: 300px;
+    width: 237px;
+  }
+  .row{
+    display: flex;
+    flex-direction: column;
+  }
+  .card_container{
+    display: flex;
+    flex-direction: column;
+  }
+  .card{
+    display: flex;
+    flex-direction: column;
+  }
+  .container h1{
+    font-size: 30px;
+  }
+  .btns{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@keyframes fade {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+  
+}
+@keyframes side {
+  from{
+    transform: translateX(-30px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+@keyframes drop{
+  from{
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

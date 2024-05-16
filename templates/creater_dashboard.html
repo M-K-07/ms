@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/creator_dashboard.css">
+    <title>users dashboard</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+  
+  <a href="{{ url_for('index') }}">
+    <button class="back"><i class="fa-solid fa-arrow-left"></i>Back</button>
+</a> 
+  <div class="container">
+
+    <h3>{{session['creater']}}'s dashboard</h3>
+    <div class="btns">
+
+      <a href="{{url_for('uploadmusic')}}"><button>Upload Song</button></a>
+      <a href="{{url_for('creater_all_songs')}}"><button>View Uploaded Songs</button></a>
+      <a href="{{url_for('clogout')}}"><button>Logout</button></a>
+    </div>
+  </div>
+</body>
+<script src="https://kit.fontawesome.com/8e56515553.js" crossorigin="anonymous"></script>
+</html>
+
+
+<!-- ABt to work -->

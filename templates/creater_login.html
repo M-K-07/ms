@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/creatorLogin.css" />
+    <title>Login Page</title>
+  </head>
+  <div class="flash-message-container">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="flash-message">
+          <b>{{ message }}</b>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
+  <body>
+    <a href="{{url_for('index')}}">
+      <button class="back"><i class="fa-solid fa-arrow-left"></i>Back</button>
+    </a>
+    <div class="container">
+      <div class="login-container">
+        <h2>Creator Login</h2>
+        <form action="#" method="POST">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit">Login</button>
+        </form>
+        <div class="forgot-password">
+          <a href="{{ url_for('cforgot') }}">Forgot password?</a>
+        </div>
+        <div class="create-account">
+          Don't you have an account?
+          <a href="{{ url_for('cregistration') }}">Create one</a>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/8e56515553.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

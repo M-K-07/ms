@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/creator_registration.css">
+    <title>user registartion</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+  <a href="{{url_for('index')}}">
+    <button class="back"><i class="fa-solid fa-arrow-left"></i>Back</button>
+  </a>
+  <div class="container">
+
+    <h3>Creater Registration</h3>
+    <div class="form">
+      
+      <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Enter usename combination of text, special charaters,numbers" required>
+        <label>Email:</label><input type="email" name="email" placeholder="Enter email" required>
+        <label>Password:</label><input type="password" name="password" placeholder="Enter password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <a href="{{url_for('clogin')}}">Already have an account?</a>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/8e56515553.js" crossorigin="anonymous"></script>
+  </body>
+</html>

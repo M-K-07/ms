@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/searchResults.css" />
+    <title>Search Results</title>
+  </head>
+  <body>
+    <a href="{{ url_for('index') }}">
+      <button class="back"><i class="fa-solid fa-arrow-left"></i>Back</button>
+    </a>
+    <h1>Search Results</h1>
+    <div class="container">
+      {% if items %} {% for song in items %}
+      <div class="song-item">
+        <h3>{{ song[1] }}</h3>
+        <div class="song-details">
+          <p><strong>Artist 1:</strong> {{ song[4] }}</p>
+          {% if song[5] %}
+          <p><strong>Artist 2:</strong> {{ song[5] }}</p>
+          {% endif %}
+          <p><strong>Album:</strong> {{ song[6] }}</p>
+          <p><strong>Director:</strong> {{ song[7] }}</p>
+          <p><strong>Singer:</strong> {{ song[8] }}</p>
+          {% if song[9] %}
+          <p><strong>Singer 2:</strong> {{ song[9] }}</p>
+          {% endif %}
+          <p><strong>Release Year:</strong> {{ song[10] }}</p>
+          <p><strong>Uploaded At:</strong> {{ song[11] }}</p>
+       
+          <p><strong>Mood:</strong> {{ song[13] }}</p>
+        </div>
+        <div class="song-actions">
+          <a href="{{ url_for('viewsongs', song_id=song[0]) }}">View Song</a>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <p>No data Found</p>
+      {% endif %}
+    </div>
+    <script
+      src="https://kit.fontawesome.com/8e56515553.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

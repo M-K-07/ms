@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+    <link rel="stylesheet" href="/static/favourites.css">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center>{{ message }}</center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('index')}}">
+        <button class="back"><i class="fa-solid fa-arrow-left"></i>Back</button>
+        </a>
+        <h1>Favourites</h1>
+    <div class="container">
+        <div class="row">
+            {% if items %}
+                {% for song_id, song_details in items.items() %}
+                    <div class="card_container">
+                        <div class="card">
+                            <div class="banner">
+                                <img src="{{ url_for('static', filename=song_details[1]+'.jpg') }}" class="card-img-top" alt="Song Picture">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ song_details[0] }}</h5>
+                                <p class="card-text">Album: {{ song_details[3] }}</p>
+                                <audio controls>
+                                    <source src="../static/{{ song_details[2] }}.mp3" type="audio/mp3">
+                                </audio>
+                                <a href="{{url_for('remove_song',song_id=song_id)}}" class="remove_btn">Remove from Favorites</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div class="no_fav">
+                <p>No added favourite songs.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/8e56515553.js" crossorigin="anonymous"></script>
+</body>
+</html>
